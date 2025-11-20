@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campuslands - Talento, Tecnología y Territorio para un Futuro Sostenible</title>
+    <meta name="description" content="Campuslands transforma jóvenes en talento tecnológico competitivo. Alianza estratégica con CENIT para impulsar desarrollo sostenible en territorios energéticos." />
+    <meta name="author" content="Campuslands" />
+    <meta name="keywords" content="formación tecnológica, desarrollo de software, talento digital, sostenibilidad, CENIT, responsabilidad social" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Campuslands - Talento, Tecnología y Territorio" />
+    <meta property="og:description" content="Centro de entrenamiento intensivo que transforma jóvenes en talento tecnológico de alto nivel" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Favicon -->
+    <link rel="canonical" href="https://campuslands.lovable.app" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: hsl(214, 95%, 36%);
+            --primary-light: hsl(214, 95%, 46%);
+            --secondary: hsl(142, 76%, 36%);
+            --accent: hsl(27, 96%, 61%);
+            --background: hsl(0, 0%, 100%);
+            --foreground: hsl(222, 47%, 11%);
+            --muted: hsl(210, 40%, 96%);
+            --muted-foreground: hsl(215, 16%, 47%);
+            --border: hsl(214, 32%, 91%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 8px rgba(22, 87, 171, 0.08);
+        }
+
+        .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 1rem; /* Reduce el alto interno */
+}
+
+.nav-links li a {
+    padding: 0.3rem 0.8rem; /* Menos espacio alrededor del texto */
+}
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--foreground);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 2rem 80px;
+            background: linear-gradient(135deg, rgba(22, 87, 171, 0.1), rgba(34, 139, 34, 0.1));
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(22, 87, 171, 0.16);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(22, 87, 171, 0.16);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        section .subtitle {
+            text-align: center;
+            color: var(--muted-foreground);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .bg-muted {
+            background: var(--muted);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px rgba(22, 87, 171, 0.12);
+        }
+
+        .features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .feature {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 8px rgba(22, 87, 171, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(22, 87, 171, 0.12);
+        }
+
+        .feature h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(22, 87, 171, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 32px rgba(22, 87, 171, 0.16);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step ul {
+            list-style: none;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .step ul li {
+            padding: 0.25rem 0;
+            color: var(--muted-foreground);
+        }
+
+        .step ul li::before {
+            content: "✓ ";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(22, 87, 171, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 32px rgba(22, 87, 171, 0.16);
+        }
+
+        .program-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            color: var(--muted-foreground);
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(22, 87, 171, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 32px rgba(22, 87, 171, 0.16);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(22, 87, 171, 0.08);
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h4 {
+            color: var(--foreground);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--muted-foreground);
+        }
+
+        .visit-highlights {
+            background: var(--muted);
+            padding: 2rem;
+            border-radius: 0.75rem;
+        }
+
+        .visit-highlights h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .visit-highlights ul {
+            list-style: none;
+        }
+
+        .visit-highlights ul li {
+            padding: 0.75rem 0;
+            color: var(--foreground);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .visit-highlights ul li:last-child {
+            border-bottom: none;
+        }
+
+        .visit-highlights ul li::before {
+            content: "→ ";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--muted);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--muted-foreground);
+        }
+
+        .footer-heart {
+            color: var(--secondary);
+            margin: 0 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+    <!-- Navbar -->
+    <nav id="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="images/logos Cenit.png" alt="Campuslands" style="height:160px;">
+        </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+                <li><a href="#proceso" onclick="closeMenu()">Proceso</a></li>
+                <li><a href="#alineacion" onclick="closeMenu()">Alineación</a></li>
+                <li><a href="#programas" onclick="closeMenu()">Programas</a></li>
+                <li><a href="#beneficios" onclick="closeMenu()">Beneficios</a></li>
+                <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Talento, Tecnología y Territorio para un Futuro Sostenible</h1>
+                    <p>Transformamos jóvenes en talento tecnológico competitivo para impulsar el desarrollo sostenible en el territorio.</p>
+                    <div class="hero-buttons">
+                        <a href="#contacto" class="btn btn-primary">Conoce Más</a>
+                        <a href="#programas" class="btn btn-secondary">Ver Programas</a>
+                    </div>
+                </div>
+<style>
+   <style>
+    .hero-video-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid rgba(212,175,55,0.45);
+        box-shadow: 0px 0px 25px rgba(212,175,55,0.25);
+    }
+
+    .hero-video {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 14px;
+        object-fit: cover;
+    }
+
+    /* Botón Play elegante centrado */
+    .center-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.75);
+        border: 2px solid #d4af37;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s ease;
+        backdrop-filter: blur(4px);
+        z-index: 10;
+    }
+
+    .center-play-btn:hover {
+        transform: translate(-50%, -50%) scale(1.08);
+        background: rgba(212,175,55,0.25);
+    }
+
+    .center-play-btn i {
+        font-size: 38px;
+        color: #d4af37;
+        margin-left: 4px;
+    }
+</style>
+
+<div class="hero-image">
+    <div class="hero-video-container">
+
+        <!-- VIDEO -->
+        <video id="heroVideo" class="hero-video" controls>
+            <source src="video/linea de tiempo 2.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+
+        <!-- Botón Play centrado -->
+        <div id="playButton" class="center-play-btn">
+            <i class="fas fa-play"></i>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const video = document.getElementById("heroVideo");
+    const playBtn = document.getElementById("playButton");
+
+    // Al presionar el botón se reproduce el video con sonido
+    playBtn.addEventListener("click", () => {
+        video.muted = false;
+        video.play();
+        playBtn.style.display = "none";
+    });
+
+    // Oculta el botón si el usuario presiona play desde los controles
+    video.addEventListener("play", () => {
+        playBtn.style.display = "none";
+    });
+
+    // Muestra el botón si el video está pausado y no ha terminado
+    video.addEventListener("pause", () => {
+        if (video.currentTime > 0 && video.currentTime < video.duration) {
+            playBtn.style.display = "flex";
+        }
+    });
+</script>
+
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Jóvenes Formados</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">110+</div>
+                    <div class="stat-label">Empresas Aliadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">Empleabilidad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros">
+        <div class="container">
+            <h2>¿Qué es Campuslands?</h2>
+            <p class="subtitle">
+                Centro de entrenamiento intensivo que transforma jóvenes de estratos 1, 2 y 3 en talento competitivo para la cuarta revolución.
+            </p>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/campers1.JPG" alt="Estudiantes de Campuslands programando" />
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🎯 Desarrollo de Software</h3>
+                        <p>Formación intensiva en programación con estándares internacionales y proyectos reales.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🤖 Inteligencia Artificial</h3>
+                        <p>Capacitación en tecnologías de IA aplicadas a soluciones empresariales concretas.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🌍 Inglés Técnico</h3>
+                        <p>Programa intensivo de inglés enfocado en comunicación profesional y técnica.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>💡 Inteligencia Emocional</h3>
+                        <p>Desarrollo de habilidades socioemocionales para el entorno laboral profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="proceso" class="bg-muted">
+        <div class="container">
+            <h2>Cómo formamos talento con impacto real</h2>
+            <p class="subtitle">
+                Proceso formativo en 5 etapas orientadas a disciplina, resiliencia y empleabilidad.
+            </p>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Talent Up</h3>
+                    <p>Reclutamiento y Diagnóstico Integral</p>
+                    <ul>
+                        <li>Evaluación técnica</li>
+                        <li>Análisis motivacional</li>
+                        <li>Diagnóstico de lógica</li>
+                    </ul>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Sandbox</h3>
+                    <p>15 días de Entrenamiento Inicial</p>
+                    <ul>
+                        <li>Pruebas de resiliencia</li>
+                        <li>Evaluación de adaptación</li>
+                        <li>Medición de compromiso</li>
+                    </ul>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Bootcamp</h3>
+                    <p>1.800 horas de Formación Intensiva</p>
+                    <ul>
+                        <li>Programación</li>
+                        <li>Inteligencia Artificial</li>
+                        <li>Inglés intensivo</li>
+                        <li>Habilidades socioemocionales</li>
+                    </ul>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Tech Leap</h3>
+                    <p>Preparación para Empleabilidad</p>
+                    <ul>
+                        <li>Mentoría profesional</li>
+                        <li>Construcción de perfil</li>
+                        <li>Simulación de entrevistas</li>
+                        <li>Retos técnicos</li>
+                    </ul>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Inserción Laboral</h3>
+                    <p>Conexión con Empresas</p>
+                    <ul>
+                        <li>Red de empresas aliadas</li>
+                        <li>Vinculación internacional</li>
+                        <li>80% empleabilidad formal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alignment Section -->
+    <section id="alineacion">
+        <div class="container">
+            <h2>Alineación con CENIT</h2>
+            <p class="subtitle">
+                Contribuimos directamente a la estrategia de sostenibilidad y desarrollo territorial de CENIT.
+            </p>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/tec 2.jpg" alt="Tecnología y Sostenibilidad" />
+                </div>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🌱 Desarrollo Económico Local</h3>
+                        <p>Promovemos oportunidades de empleo en territorios con presencia operativa de CENIT.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>👥 Fortalecimiento de Capacidades</h3>
+                        <p>Capacitamos jóvenes en regiones energéticas con habilidades tecnológicas de alto valor.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🏡 Impacto en Familias Vulnerables</h3>
+                        <p>Creamos oportunidades reales que transforman el futuro de familias en zonas de influencia.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📊 Indicadores Verificables</h3>
+                        <p>Generamos métricas de impacto social alineadas con objetivos TESG y ODS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programas" class="bg-muted">
+        <div class="container">
+            <h2>Programas de RSE para CENIT</h2>
+            <p class="subtitle">
+                Iniciativas diseñadas para fortalecer el compromiso territorial y social de CENIT.
+            </p>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>🎓 Patrocinios de Formación</h3>
+                    <p>Becas completas para jóvenes de territorios estratégicos en municipios del área de influencia de CENIT. Incluye formación técnica, inglés y habilidades blandas.</p>
+                </div>
+                <div class="program-card">
+                    <h3>🌍 Desarrollo Territorial</h3>
+                    <p>Fortalecimiento de capacidades digitales en comunidades rurales y urbanas, creando oportunidades sin necesidad de migración.</p>
+                </div>
+                <div class="program-card">
+                    <h3>💼 Monetización Cuota SENA</h3>
+                    <p>Cumplimiento de obligación legal mediante formación tecnológica de alto impacto con resultados medibles y certificables.</p>
+                </div>
+                <div class="program-card">
+                    <h3>🚀 Proyectos Tecnológicos</h3>
+                    <p>Soluciones desarrolladas por estudiantes (IA, automatización, software) que benefician instituciones locales y comunidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios">
+        <div class="container">
+            <h2>Beneficios de la Alianza Campuslands-CENIT</h2>
+            <p class="subtitle">
+                Una colaboración estratégica que genera valor compartido y resultados sostenibles.
+            </p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Impacto Territorial Directo</h3>
+                    <p>Transformación real en las comunidades donde CENIT opera con resultados medibles y sostenibles.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💻</div>
+                    <h3>Talento para Innovación</h3>
+                    <p>Aporta capacidades tecnológicas para desafíos de automatización, digitalización e IA.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Movilidad Social</h3>
+                    <p>Genera oportunidades reales de progreso económico para jóvenes de zonas rurales y urbanas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌟</div>
+                    <h3>Legado Social</h3>
+                    <p>Fortalece el compromiso de CENIT con el desarrollo sostenible de territorios energéticos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌿</div>
+                    <h3>Alineación ESG</h3>
+                    <p>Contribuye directamente a metas TESG, neutralidad de carbono y transición energética.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Resultados Comprobables</h3>
+                    <p>Alianza con indicadores verificables, reportes mensuales y medición de impacto continua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section id="contacto" style="background: #0d0d0d; padding: 4rem 0;">
+    <div class="container" style="max-width: 1100px; margin: auto;">
+
+        <!-- Tarjeta Principal -->
+        <div style="
+            background: linear-gradient(145deg, #111, #000);
+            border: 1px solid rgba(212,175,55,0.4);
+            border-radius: 18px;
+            padding: 3rem;
+            box-shadow: 0 0 25px rgba(212,175,55,0.15);
+        ">
+            <h2 style="
+                text-align: center;
+                font-size: 2.2rem;
+                color: #d4af37;
+                letter-spacing: 1px;
+                margin-bottom: 1rem;
+            ">
+                Invitación a Conocer Campuslands
+            </h2>
+
+            <p style="
+                text-align: center;
+                color: #e6e6e6;
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+            ">
+                Extendemos una invitación especial al equipo de CENIT para visitar nuestras instalaciones.
+            </p>
+
+            <!-- CONTENIDO DE DOS COLUMNAS -->
+            <div class="contact-content" style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2.5rem;
+            ">
+
+                <!-- Columna Izquierda -->
+                <div class="contact-info" style="color: #fff;">
+                    <h3 style="color: #d4af37; margin-bottom: 1.5rem;">📍 Ubicación</h3>
+
+                    <div class="contact-item" style="margin-bottom: 1.2rem;">
+                        <h4 style="color: #d4af37; margin: 0;">Bucaramanga</h4>
+                        <p style="color: #080808;">Zona Franca Santander, edificio zenith piso 6</p>
+                    </div>
+
+
+                    <div class="contact-item">
+                        <h4 style="color: #d4af37; margin: 0;">Contacto</h4>
+                        <p style="color: #090909;">Maria Fernanda Blanco-Directora de alianzas estrategicas- 300 8615282</p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha -->
+                <div class="visit-highlights" style="color: #fff;">
+                    <h3 style="color: #d4af37; margin-bottom: 1.5rem;">Durante la visita conocerás:</h3>
+                    <ul style="
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        line-height: 1.8;
+                    ">
+                        <li style="border-left: 3px solid #d4af37; padding-left: .8rem;">Nuestro ecosistema formativo completo</li>
+                        <li style="border-left: 3px solid #d4af37; padding-left: .8rem;">Estudiantes activos en formación</li>
+                        <li style="border-left: 3px solid #d4af37; padding-left: .8rem;">Laboratorios y proyectos reales</li>
+                        <li style="border-left: 3px solid #d4af37; padding-left: .8rem;">Casos de éxito en empleabilidad</li>
+                        <li style="border-left: 3px solid #d4af37; padding-left: .8rem;">Oportunidades de articulación territorial</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Mensaje Final -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="
+                    font-size: 1.3rem;
+                    color: #d4af37;
+                    font-weight: 600;
+                    line-height: 1.5;
+                ">
+                    Campuslands está transformando el futuro del talento en Colombia.<br>
+                    Nos encantaría mostrarles cómo podemos lograrlo juntos.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Campuslands. Transformando vidas a través de la tecnología.</p>
+            <p>Hecho con <span class="footer-heart">♥</span> para un futuro sostenible</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
